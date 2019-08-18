@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ActivatedRoute } from '@angular/router';
+import { AppService, User } from '../app.service';
 
 @Component({
   selector: 'app-home',
@@ -7,49 +9,27 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  exames = [];
+  user: User;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private appService: AppService
+  ) {}
 
   ngOnInit() {
-    this.exames = [
-      {
-        dia: 'Hoje',
-        data: '1 Fev',
-        medico: 'Dr. Marcos',
-        exame: 'Teleperfil Em Celalostalo Com Traçado',
-        show: false
+    this.getUser(this.activatedRoute.snapshot.params.id);
+  }
+
+  getUser(id: number) {
+    this.appService.getCurrentUser(id).subscribe(
+      result => {
+        this.user = result[0];
       },
-      {
-        dia: 'Hoje',
-        data: '1 Fev',
-        medico: 'Dr. Marcos',
-        exame: 'Teleperfil Em Celalostalo Com Traçado',
-        show: false
-      },
-      {
-        dia: 'Hoje',
-        data: '1 Fev',
-        medico: 'Dr. Marcos',
-        exame: 'Teleperfil Em Celalostalo Com Traçado',
-        show: false
-      },
-      {
-        dia: 'Hoje',
-        data: '1 Fev',
-        medico: 'Dr. Marcos',
-        exame: 'Teleperfil Em Celalostalo Com Traçado',
-        show: false
-      },
-      {
-        dia: 'Hoje',
-        data: '1 Fev',
-        medico: 'Dr. Marcos',
-        exame: 'Teleperfil Em Celalostalo Com Traçado',
-        show: false
-      }
-    ];
+      err => console.log(err)
+    );
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.exames, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.user.exames, event.previousIndex, event.currentIndex);
   }
 }

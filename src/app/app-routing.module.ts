@@ -9,7 +9,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home',
+    path: 'home/:id',
     component: HomeComponent
   }
 ];
