@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  teste = [];
+  exames = [];
 
   ngOnInit() {
-    this.teste = [
+    this.exames = [
       {
         dia: 'Hoje',
         data: '1 Fev',
@@ -19,32 +20,36 @@ export class HomeComponent implements OnInit {
       },
       {
         dia: 'Hoje',
-        data: '1 Fev',
+        data: '2 Fev',
         medico: 'Dr. Marcos',
         exame: 'Teleperfil Em Celalostalo Com Traçado',
         show: false
       },
       {
         dia: 'Hoje',
-        data: '1 Fev',
+        data: '3 Fev',
         medico: 'Dr. Marcos',
         exame: 'Teleperfil Em Celalostalo Com Traçado',
         show: false
       },
       {
         dia: 'Hoje',
-        data: '1 Fev',
+        data: '4 Fev',
         medico: 'Dr. Marcos',
         exame: 'Teleperfil Em Celalostalo Com Traçado',
         show: false
       },
       {
         dia: 'Hoje',
-        data: '1 Fev',
+        data: '5 Fev',
         medico: 'Dr. Marcos',
         exame: 'Teleperfil Em Celalostalo Com Traçado',
         show: false
       }
     ];
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.exames, event.previousIndex, event.currentIndex);
   }
 }

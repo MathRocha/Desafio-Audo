@@ -6,43 +6,45 @@
 <main>
   <div>
     <h6>MEUS EXAMES</h6>
-    <div class="mb-3" *ngFor="let test of teste">
-      <mat-card
-        [ngClass]="{ 'bg-primary': test.show, 'text-white': test.show }"
-        (click)="test.show = !test.show"
-      >
-        <mat-card-subtitle
-          class="d-inline-block mr-3"
-          [ngClass]="{ 'text-white': test.show }"
-          >{{ test.dia }}</mat-card-subtitle
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+      <div class="mb-3" *ngFor="let exame of exames" cdkDrag>
+        <mat-card
+          [ngClass]="{ 'bg-primary': exame.show, 'text-white': exame.show }"
+          (click)="exame.show = !exame.show"
         >
-        <mat-card-subtitle
-          class="d-inline-block mr-5"
-          [ngClass]="{ 'text-white': test.show }"
-          >{{ test.data }}</mat-card-subtitle
-        >
-        <mat-card-subtitle
-          class="d-inline-block ml-5"
-          [ngClass]="{ 'text-white': test.show }"
-          >{{ test.medico }}</mat-card-subtitle
-        >
-        <mat-card-title>{{ test.exame }}</mat-card-title>
-      </mat-card>
-      <div *ngIf="test.show">
-        <mat-card>
-          <button
-            type="button"
-            class="d-inline-block btn btn-primary rounded-pill mx-2"
+          <mat-card-subtitle
+            class="d-inline-block mr-3"
+            [ngClass]="{ 'text-white': exame.show }"
+            >{{ exame.dia }}</mat-card-subtitle
           >
-            VER LAUDO
-          </button>
-          <button
-            type="button"
-            class="d-inline-block btn btn-light rounded-pill mx-2"
+          <mat-card-subtitle
+            class="d-inline-block mr-5"
+            [ngClass]="{ 'text-white': exame.show }"
+            >{{ exame.data }}</mat-card-subtitle
           >
-            BAIXAR IMAGENS
-          </button>
+          <mat-card-subtitle
+            class="d-inline-block ml-5"
+            [ngClass]="{ 'text-white': exame.show }"
+            >{{ exame.medico }}</mat-card-subtitle
+          >
+          <mat-card-title>{{ exame.exame }}</mat-card-title>
         </mat-card>
+        <div *ngIf="exame.show">
+          <mat-card>
+            <button
+              type="button"
+              class="d-inline-block btn btn-primary rounded-pill mx-2"
+            >
+              VER LAUDO
+            </button>
+            <button
+              type="button"
+              class="d-inline-block btn btn-light rounded-pill mx-2"
+            >
+              BAIXAR IMAGENS
+            </button>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>
