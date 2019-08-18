@@ -1,12 +1,16 @@
 <header>
-  <div>
+  <div class="bg-white p-2 mb-4 text-center" [style.height.px]="60">
+    <img
+      class="img-fluid w-auto h-100 float-left d-none d-sm-block"
+      src="../../assets/img/logo.png"
+    />
     <h6>Pedro Francisco João Xavier Alcântara Antônio</h6>
   </div>
 </header>
 <main>
   <div>
-    <h6>MEUS EXAMES</h6>
-    <div cdkDropList (cdkDropListDropped)="drop($event)">
+    <h6 class="ml-4 mb-4">MEUS EXAMES</h6>
+    <div cdkDropList (cdkDropListDropped)="drop($event)" class="mx-2">
       <div class="mb-3" *ngFor="let exame of exames" cdkDrag>
         <mat-card
           [ngClass]="{ 'bg-primary': exame.show, 'text-white': exame.show }"
@@ -33,13 +37,13 @@
           <mat-card>
             <button
               type="button"
-              class="d-inline-block btn btn-primary rounded-pill mx-2"
+              class="d-inline-block btn btn-primary rounded-pill mx-1"
             >
               VER LAUDO
             </button>
             <button
               type="button"
-              class="d-inline-block btn btn-light rounded-pill mx-2"
+              class="d-inline-block btn btn-light rounded-pill mx-1"
             >
               BAIXAR IMAGENS
             </button>
