@@ -1,1 +1,49 @@
-<p>home works!</p>
+<header>
+  <div>
+    <h6>Pedro Francisco João Xavier Alcântara Antônio</h6>
+  </div>
+</header>
+<main>
+  <div>
+    <h6>MEUS EXAMES</h6>
+    <div class="mb-3" *ngFor="let test of teste">
+      <mat-card
+        [ngClass]="{ 'bg-primary': test.show, 'text-white': test.show }"
+        (click)="test.show = !test.show"
+      >
+        <mat-card-subtitle
+          class="d-inline-block mr-3"
+          [ngClass]="{ 'text-white': test.show }"
+          >{{ test.dia }}</mat-card-subtitle
+        >
+        <mat-card-subtitle
+          class="d-inline-block mr-5"
+          [ngClass]="{ 'text-white': test.show }"
+          >{{ test.data }}</mat-card-subtitle
+        >
+        <mat-card-subtitle
+          class="d-inline-block ml-5"
+          [ngClass]="{ 'text-white': test.show }"
+          >{{ test.medico }}</mat-card-subtitle
+        >
+        <mat-card-title>{{ test.exame }}</mat-card-title>
+      </mat-card>
+      <div *ngIf="test.show">
+        <mat-card>
+          <button
+            type="button"
+            class="d-inline-block btn btn-primary rounded-pill mx-2"
+          >
+            VER LAUDO
+          </button>
+          <button
+            type="button"
+            class="d-inline-block btn btn-light rounded-pill mx-2"
+          >
+            BAIXAR IMAGENS
+          </button>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</main>

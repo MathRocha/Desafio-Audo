@@ -1,7 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,10 +13,12 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
