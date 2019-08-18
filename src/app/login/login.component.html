@@ -1,0 +1,28 @@
+<div class="loginBody">
+  <img class="logo" src="../../assets/img/logo.png" />
+  <form>
+    <div class="form-group mx-auto">
+      <input
+        type="text"
+        name="login"
+        [(ngModel)]="login"
+        class="border form-control form-control-lg"
+        placeholder="Digite o código do exame"
+      />
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        class="border form-control form-control-lg"
+        placeholder="Digite a senha de acesso"
+      />
+      <button
+        type="button"
+        (click)="realizarLogin()"
+        class="btn btn-primary rounded-pill px-4"
+      >
+        Entrar
+      </button>
+    </div>
+  </form>
+</div>
