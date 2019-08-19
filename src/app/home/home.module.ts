@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AlertModule } from '../alert/alert.module';
 import { RouterModule } from '@angular/router';
 import { HomeRoutingModule } from './home-routing-module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,7 +16,8 @@ import { HomeRoutingModule } from './home-routing-module';
     MatProgressSpinnerModule,
     AlertModule,
     RouterModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    DragDropModule
   ],
   exports: [HomeComponent]
 })
