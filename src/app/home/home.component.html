@@ -1,11 +1,13 @@
-<div *ngIf="user">
+<div *ngIf="user; else elseBlock">
   <header>
     <div class="bg-white p-2 mb-4 text-center" [style.height.px]="60">
       <img
         class="img-fluid w-auto h-100 float-left d-none d-sm-block"
         src="../../assets/img/logo.png"
       />
-      <h6>{{ user.name }}</h6>
+      <h6 class="text-nowrap overflow-hidden" style="text-overflow: ellipsis;">
+        {{ user.name }}
+      </h6>
     </div>
   </header>
   <main>
@@ -57,3 +59,7 @@
     </div>
   </main>
 </div>
+<ng-template #elseBlock class="d-block mx-auto">
+  <app-alert *ngIf="showAlert" [mensagem]="alertMessage"></app-alert>
+  <mat-spinner *ngIf="loading" diameter="40" class="mx-auto"></mat-spinner>
+</ng-template>

@@ -1,6 +1,4 @@
-<div *ngIf="showAlert" class="alert alert-danger" role="alert">
-  Usuario ou senha incorretos
-</div>
+<app-alert *ngIf="showAlert" [mensagem]="alertMessage"></app-alert>
 <main>
   <div class="text-center">
     <img class="my-5 img-fluid" src="../../assets/img/logo.png" />
@@ -9,18 +7,14 @@
         type="text"
         name="login"
         [(ngModel)]="login"
-        class="d-block border mx-auto p-3"
-        [style.max-width.px]="600"
-        [style.width.%]="90"
+        class="d-block border mx-auto p-3 formComponent"
         placeholder="Digite o código do exame"
       />
       <input
         type="password"
         name="password"
         [(ngModel)]="password"
-        class="d-block border border-top-0 mx-auto p-3"
-        [style.max-width.px]="600"
-        [style.width.%]="90"
+        class="d-block border border-top-0 mx-auto p-3 formComponent"
         placeholder="Digite a senha de acesso"
       />
       <button
@@ -31,11 +25,7 @@
         Entrar
       </button>
     </div>
-    <div
-      [style.max-width.px]="600"
-      [style.width.%]="90"
-      class="mt-5 mx-auto font-weight-bold"
-    >
+    <div class="mt-5 mx-auto font-weight-bold formComponent">
       Pacientes, em caso de dúvidas e/ou problemas de acesso, entrar em contato
       com nossa central de atendimento pelo telefone (85) XXXX-XXXX.
     </div>

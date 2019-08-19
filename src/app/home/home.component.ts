@@ -10,6 +10,9 @@ import { AppService, User } from '../app.service';
 })
 export class HomeComponent implements OnInit {
   user: User;
+  alertMessage: string;
+  showAlert = false;
+  loading = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,8 +27,14 @@ export class HomeComponent implements OnInit {
     this.appService.getCurrentUser(id).subscribe(
       result => {
         this.user = result[0];
+        this.loading = false;
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+        this.alertMessage = 'Erro ao carregar informações do usuário';
+        this.showAlert = true;
+        this.loading = false;
+      }
     );
   }
 

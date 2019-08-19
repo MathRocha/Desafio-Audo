@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   login: string;
   password: string;
   showAlert = false;
+  alertMessage: string;
 
   constructor(private router: Router, private appService: AppService) {}
 
@@ -23,10 +24,16 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home', result[0].id]);
         } else {
           this.showAlert = true;
+          this.alertMessage = 'Usuario ou senha incorretos';
           setTimeout(() => (this.showAlert = false), 5000);
         }
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+        this.showAlert = true;
+        this.alertMessage = 'Erro ao se comunicar com o servidor';
+        setTimeout(() => (this.showAlert = false), 5000);
+      }
     );
   }
 }
