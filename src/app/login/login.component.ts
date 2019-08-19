@@ -10,6 +10,7 @@ import { AppService } from '../app.service';
 export class LoginComponent implements OnInit {
   login: string;
   password: string;
+  showAlert = false;
 
   constructor(private router: Router, private appService: AppService) {}
 
@@ -20,6 +21,9 @@ export class LoginComponent implements OnInit {
       result => {
         if (result[0]) {
           this.router.navigate(['/home', result[0].id]);
+        } else {
+          this.showAlert = true;
+          setTimeout(() => (this.showAlert = false), 5000);
         }
       },
       err => console.log(err)
