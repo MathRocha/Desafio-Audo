@@ -1,8 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,15 +9,7 @@ import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    LoginModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, LoginModule],
   providers: [AppService],
   bootstrap: [AppComponent]
 })
