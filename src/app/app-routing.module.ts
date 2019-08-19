@@ -9,8 +9,8 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'home/:id',
-    component: HomeComponent
+    path: 'home',
+    loadChildren: './home/home.module#HomeModule'
   }
 ];
 
