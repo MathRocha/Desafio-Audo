@@ -19,7 +19,7 @@
   >
   <mat-card-title>{{ exame.exame }}</mat-card-title>
 </mat-card>
-<div *ngIf="exame.show">
+<div @expandableState *ngIf="exame.show">
   <mat-card>
     <button
       type="button"
@@ -30,7 +30,7 @@
     </button>
     <button
       type="button"
-      class="d-inline-block btn btn-light rounded-pill mx-1"
+      class="d-inline-block btn btn-light text-primary rounded-pill mx-1"
       (click)="downloadImagem()"
     >
       BAIXAR IMAGENS
