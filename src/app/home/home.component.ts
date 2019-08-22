@@ -19,11 +19,11 @@ export class HomeComponent implements OnInit {
     private appService: AppService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUser(this.activatedRoute.snapshot.params.id);
   }
 
-  getUser(id: number) {
+  getUser(id: number): void {
     this.appService.getCurrentUser(id).subscribe(
       result => {
         this.user = result[0];
@@ -38,7 +38,11 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  receiveEmission(emission: boolean, i: number): void {
+    this.user.exames[i].show = emission;
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.user.exames, event.previousIndex, event.currentIndex);
   }
 }

@@ -1,6 +1,6 @@
 <mat-card
   [ngClass]="{ 'bg-primary': exame.show, 'text-white': exame.show }"
-  (click)="exame.show = !exame.show"
+  (click)="exameClicked(!exame.show)"
 >
   <mat-card-subtitle
     class="d-inline-block mr-3"

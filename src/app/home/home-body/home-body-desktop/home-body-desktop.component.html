@@ -1,7 +1,8 @@
 <mat-accordion>
   <mat-expansion-panel
-    (opened)="exame.show = true"
-    (closed)="exame.show = false"
+    (opened)="exameClicked(true)"
+    (closed)="exameClicked(false)"
+    [expanded]="exame.show"
   >
     <mat-expansion-panel-header
       [collapsedHeight]="'100px'"

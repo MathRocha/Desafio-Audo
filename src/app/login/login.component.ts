@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
@@ -7,7 +7,7 @@ import { AppService } from '../app.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   login: string;
   password: string;
   showAlert = false;
@@ -15,9 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private appService: AppService) {}
 
-  ngOnInit() {}
-
-  realizarLogin() {
+  realizarLogin(): void {
     this.appService.login(this.login, this.password).subscribe(
       result => {
         if (result[0]) {
