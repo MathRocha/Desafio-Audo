@@ -7,9 +7,18 @@ import { AlertModule } from '../alert/alert.module';
 import { RouterModule } from '@angular/router';
 import { HomeRoutingModule } from './home-routing-module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { HomeBodyMobileComponent } from './home-body/home-body-mobile/home-body-mobile.component';
+import { HomeBodyDesktopComponent } from './home-body/home-body-desktop/home-body-desktop.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [
+    HomeComponent,
+    HomeBodyMobileComponent,
+    HomeBodyDesktopComponent,
+    HomeHeaderComponent
+  ],
   imports: [
     CommonModule,
     MatCardModule,
@@ -17,7 +26,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AlertModule,
     RouterModule,
     HomeRoutingModule,
-    DragDropModule
+    DragDropModule,
+    MatExpansionModule
   ],
   exports: [HomeComponent]
 })

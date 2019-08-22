@@ -38,20 +38,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  downloadLaudo() {
-    const link = document.createElement('a');
-    link.download = 'laudo';
-    link.href = 'assets/txt/laudo.txt';
-    link.click();
-  }
-
-  downloadImagem() {
-    const link = document.createElement('a');
-    link.download = 'imagem';
-    link.href = 'assets/img/download.jpg';
-    link.click();
-  }
-
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.user.exames, event.previousIndex, event.currentIndex);
   }

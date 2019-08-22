@@ -1,0 +1,62 @@
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="exame.show = true"
+    (closed)="exame.show = false"
+  >
+    <mat-expansion-panel-header
+      [collapsedHeight]="'100px'"
+      [expandedHeight]="'100px'"
+      class="right-aligned-header"
+      [ngClass]="{
+        'bg-primary': exame.show
+      }"
+    >
+      <mat-panel-description
+        [ngClass]="{
+          'text-white': exame.show
+        }"
+      >
+        {{ exame.dia }}
+      </mat-panel-description>
+      <mat-panel-description
+        class="font-weight-bold"
+        [ngClass]="{
+          'text-white': exame.show
+        }"
+      >
+        {{ exame.exame }}
+      </mat-panel-description>
+      <mat-panel-description
+        [ngClass]="{
+          'text-white': exame.show
+        }"
+      >
+        {{ exame.medico }}
+      </mat-panel-description>
+      <mat-panel-description
+        class="d-none d-sm-block"
+        [ngClass]="{
+          'text-white': exame.show
+        }"
+      >
+        {{ exame.show ? "Menos detalhes" : "Mais detalhes" }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="mt-3">
+      <button
+        type="button"
+        class="d-inline-block btn btn-primary rounded-pill mx-1"
+        (click)="downloadLaudo()"
+      >
+        VER LAUDO
+      </button>
+      <button
+        type="button"
+        class="d-inline-block btn btn-light text-primary rounded-pill mx-1"
+        (click)="downloadImagem()"
+      >
+        BAIXAR IMAGENS
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
