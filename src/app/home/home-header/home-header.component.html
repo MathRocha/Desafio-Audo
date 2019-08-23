@@ -1,9 +1,17 @@
-<div class="bg-white p-2 mb-4 text-center" [style.height.px]="60">
+<div class="d-flex bg-white p-2 mb-4 text-center" [style.height.px]="60">
   <img
     class="img-fluid w-auto h-100 float-left d-none d-sm-block"
     src="../../assets/img/logo.png"
   />
-  <h6 class="text-nowrap overflow-hidden" style="text-overflow: ellipsis;">
+  <h6
+    class="text-nowrap overflow-hidden align-self-center mb-0 mx-auto"
+    style="text-overflow: ellipsis;"
+  >
     {{ userName }}
   </h6>
+  <a
+    routerLink=""
+    class="ml-auto d-none d-sm-block font-weight-bold align-self-center"
+    >Sair</a
+  >
 </div>
