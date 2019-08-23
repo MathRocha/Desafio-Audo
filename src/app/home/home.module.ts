@@ -11,13 +11,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeBodyMobileComponent } from './home-body/home-body-mobile/home-body-mobile.component';
 import { HomeBodyDesktopComponent } from './home-body/home-body-desktop/home-body-desktop.component';
 import { HomeHeaderComponent } from './home-header/home-header.component';
+import { HomeFooterComponent } from './home-footer/home-footer.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeBodyMobileComponent,
     HomeBodyDesktopComponent,
-    HomeHeaderComponent
+    HomeHeaderComponent,
+    HomeFooterComponent
   ],
   imports: [
     CommonModule,

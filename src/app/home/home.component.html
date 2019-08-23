@@ -5,7 +5,7 @@
 
   <main>
     <div>
-      <h6 class="ml-4 mb-4">MEUS EXAMES</h6>
+      <h6 class="ml-4 mb-4">Meus Exames</h6>
       <div cdkDropList (cdkDropListDropped)="drop($event)" class="mx-2">
         <div class="mb-3" *ngFor="let exame of user.exames; index as i" cdkDrag>
           <app-home-body-desktop
@@ -22,6 +22,10 @@
       </div>
     </div>
   </main>
+
+  <footer class="d-none d-sm-block">
+    <app-home-footer></app-home-footer>
+  </footer>
 </div>
 
 <ng-template #elseBlock class="d-block mx-auto">
